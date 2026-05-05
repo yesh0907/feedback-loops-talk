@@ -1,6 +1,6 @@
 # Feedback Loops Talk
 
-Working materials for the May 20 AI Engineers tech talk: **Building Reliable AI Agents with Feedback Loops**.
+Working materials for the [May 20, 2026 AI Engineers tech talk](https://luma.com/0308ir1j): **Building Reliable AI Agents with Feedback Loops**.
 
 ## Repo Structure
 
