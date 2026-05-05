@@ -1,0 +1,44 @@
+{
+  "name": "feedback-loops-talk",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "start": "vite dev",
+    "build": "vite build",
+    "deploy": "vite build && wrangler deploy",
+    "types": "wrangler types env.d.ts"
+  },
+  "dependencies": {
+    "@cloudflare/ai-chat": "^0.4.0",
+    "@cloudflare/codemode": "^0.3.4",
+    "@cloudflare/sandbox": "^0.8.7",
+    "@cloudflare/vite-plugin": "^1.31.1",
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/addon-web-links": "^0.12.0",
+    "@xterm/xterm": "^6.0.0",
+    "agents": "^0.10.0",
+    "ai": "^6.0.154",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.38.0",
+    "geist": "^1.7.0",
+    "prism-react-renderer": "^2.4.1",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "react-router": "^7.14.0",
+    "streamdown": "^2.5.0",
+    "tailwind-merge": "^3.5.0",
+    "workers-ai-provider": "^3.1.10",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.1",
+    "tailwindcss": "^4.2.2",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.8",
+    "wrangler": "^4.81.0"
+  }
+}
