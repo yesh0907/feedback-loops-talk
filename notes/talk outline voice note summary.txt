@@ -1,0 +1,78 @@
+Meeting Overview
+Session type: Run-through/draft outline for an upcoming talk
+Talk topic: Feedback loops for agents (creating them, working with them), and how they improve agentic workflows and user experience
+Talk Goal and Target Audience
+Goal: Explain what feedback loops are, why they are valuable, and provide concrete, actionable methods for designing them in agentic products
+Target audience implied: Engineers, PMs, and others using agentic coding tools (example cited: Claude Code) and/or building agentic workflows
+Proposed Talk Structure (Outline)
+Intro
+Introduce speaker
+Brief credentials and what the speaker works on
+Conceptual foundation
+Define “feedback loop” explicitly
+Explain why feedback loops are valuable
+Connect feedback loops to why agentic coding tools are effective in practice
+Case study: Harmonic / SCOUT
+Describe SCOUT’s feedback loops in the VC sourcing workflow
+Show how feedback loops improve both agent performance and user experience
+Practical guidance / Call to action
+Provide concrete methods for “thinking in feedback loops”
+Conclusion
+Rapid summary (targeted at ~35–40 seconds)
+Backup slide with suggested question prompts / topics not covered
+Definitions and Framing: What a Feedback Loop Is
+Feedback loops are described as giving an agent the ability to verify its work by checking the produced output/artifact
+Examples of feedback loop mechanisms mentioned:
+Human feedback
+Automated checks (type checking)
+Unit tests (pass/fail)
+Integration tests
+Tool-driven interaction checks (e.g., clicking sequences via browser/agent tools)
+Key framing: there is effectively no strict bound on what a feedback loop can look like, as long as it provides verification or evaluative signal
+Case Study Details: Harmonic SCOUT Feedback Loops (VC Sourcing)
+Workflow goal: find companies meeting criteria specified in a user query
+Feedback loop/tooling layer 1: SQL execution against Harmonic’s database
+Agent can execute SQL to retrieve needed data
+Agent is aware of the database schema
+Agent constructs relevant SQL queries, inspects results, and checks adherence to user intent before returning results
+Feedback loop/tooling layer 2: user-triggered evaluation subagent
+User can trigger an evaluation subagent to review the results set and identify the most relevant companies/entities
+Motivation: results can be very large (e.g., thousands of companies), and manual sifting is a major bottleneck in the sourcing workflow
+Product framing: “above-the-line” experience is using an agent to find signal from noise
+Important nuance: this feedback loop primarily improves the user experience (helps the user interpret/prioritize results), not necessarily SCOUT’s internal correctness directly
+Outcome: users get increased value by moving from “relevant set” to “most relevant subset” aligned with intent
+Call to Action: Practical Methods for Designing Feedback Loops (Harmonic Learnings)
+Method 1: Talk to users to identify workflow bottlenecks
+Use user conversations to find friction points and design feedback loops that help the agent/user break through them
+The evaluation subagent emerged from this user-driven bottleneck discovery
+Method 2: Perform error analysis on real sessions
+Review SCOUT user sessions to find recurring failure patterns
+Insight: solutions are often not prompt tweaks; they may require implementing a feedback loop
+Example: SCOUT market maps (SVG output) and logo rendering/style issues
+User complaint: logos sometimes look off or do not fit within bounds of generated SVG
+Proposed feedback loop:
+Snapshot each generated market map SVG
+Run snapshot through a vision model to detect pitfalls (e.g., bounding/fit/styling issues)
+Feed evaluation back to the agent
+If issues detected, regenerate; otherwise proceed
+Trade-off: may increase latency, but can be addressed via UX design to accommodate latency while improving delivered value
+Method 3: Let agents modify their own skills and memory (persistence across sessions)
+Observed benefit from Claude Code: agents become powerful when they can learn how a team works, including tool usage and workflow preferences
+Not one-size-fits-all: “skills” serve as task-relevant context to tailor the agent
+Product behavior described:
+Users can iterate on skills/memory after mistakes (“don’t do that again”)
+Users can encode constraints/preferences (e.g., don’t show companies in a certain vertical)
+On future similar tasks, the agent retrieves the skill/memory and applies it
+Claimed outcome: persistence across sessions increases “stickiness” and long-term product value
+Conclusion Plan and Audience Engagement
+Conclusion slide plan:
+Summarize the full talk quickly (~35–40 seconds)
+Final/backup slide plan:
+Provide “topics we didn’t cover” to prompt Q&A and post-talk conversations
+Intended effect: easier audience engagement and deeper discussion opportunities
+Potential Q&A / “Not Covered” Topics (Planned Prompts)
+Pitfalls of feedback loops:
+Not all feedback loops are needed, necessary, or useful
+Risks include excess usage and excess token consumption
+Feedback loops can harm agent performance, particularly as new models are released/dropped
+Proposed discussion angle: lessons learned / what to do about these pitfalls based on experience

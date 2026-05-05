@@ -1,0 +1,20 @@
+- Great diagram about backpressure aka feedback loops on the benefit you get from it depending on the complexity of the task  
+  - ![image](/assets/feedback-loops-vs-complexity.png)
+    - Source: [https://banay.me/dont-waste-your-backpressure/](https://banay.me/dont-waste-your-backpressure/)  
+- Feedback loops help the agent output “quality” work  
+  - Quality is subjective, but feedback loops help align what the what quality means  
+- The feedback doesn’t have to always be passed back to the agent to help steer its trajectory or correct is output  
+- Feedback loops can include a HITL to help the agent align with the user’s expectations of the agent  
+  - Ex: search & evaluate: Scout identifies a bunch of companies that may fit the user’s query, but the automated evaluation over the companies helps the user identify the signal from the noise  
+    - The human is in the feedback loop because their input steers the agent’s trajectory  
+- Users can be involved with the feedback loop UX dynamically by providing a rubric or criteria or rules for the agent to use to help it work effectively  
+  - Skills & memory are a form of a user being involved with the feedback loop UX  
+    - Ex: user has a company search skill where they say never show me companies we are already invested in. This piece of feedback/context provided by the user aids the agent & improves the product’s UX  
+- Feedback loops can be derived from evals.  
+  - Ex: an agent can generate market map visuals, 9/10 times the formatting of the market map is great, but that 1 time might have really bad formatting and will degrade the UX. We would only know this if we had evals & the eval function to catch this can be used at runtime when this tool is called & feed that feedback into the agent’s loop so it can correct its output. It may take longer, but the quality is guaranteed (not 100% but better than 90%).  
+- There are tradeoffs to consider  
+  - Feedback loops impact latency, but latency can be curbed by crafting a UX that affords that  
+  - Feedback loops can flood agent’s context window very quickly and that could degrade overall performance, but this can also curbed by using long context models and/or subagents to run the feedback loop and iterate on it  
+  - Feedback loops can be distracting to the agent’s trajectory and impact performance  
+    - Ex: Pi’s creator argues against immediate LSP feedback; he believes that since agents frequently leave code in an unstable state during complex edits, pushing those error reports back to the model only confuses it and disrupts the workflow ([source](https://www.youtube.com/watch?v=Dli5slNaJu0&t=771s)).  
+-
