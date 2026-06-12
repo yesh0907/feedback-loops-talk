@@ -2,7 +2,7 @@
 
 Working materials and slide deck for the [May 20, 2026 AI Engineers tech talk](https://luma.com/0308ir1j): **Building Reliable AI Agents with Feedback Loops**.
 
-The deck is built on top of the stack and presentation mechanics from [`threepointone/codemode-talk`](https://github.com/threepointone/codemode-talk): React, Vite, Tailwind, Framer Motion, route-per-slide navigation, fullscreen controls, and a `/remote` speaker view backed by the Agents SDK.
+The deck is built on top of the stack and presentation mechanics from [`threepointone/codemode-talk`](https://github.com/threepointone/codemode-talk): React, Vite, Tailwind, Framer Motion, route-per-slide navigation, fullscreen controls, and a `/remote` speaker view backed by the Agents SDK clicker state.
 
 ## Setup
 

@@ -4,16 +4,11 @@
 declare namespace Cloudflare {
 	interface GlobalProps {
 		mainModule: typeof import("./src/server");
-		durableNamespaces: "CodemodeTalk" | "Sandbox" | "CloudflareApi";
+		durableNamespaces: "SlideRemote";
 	}
 	interface Env {
-		LOADER: WorkerLoader;
-		AI: Ai;
 		HOST: "http://localhost:5173";
-		OPENAI_API_KEY: string;
-		CodemodeTalk: DurableObjectNamespace<import("./src/server").CodemodeTalk>;
-		Sandbox: DurableObjectNamespace<import("./src/server").Sandbox>;
-		CloudflareApi: DurableObjectNamespace<import("./src/server").CloudflareApi>;
+		SlideRemote: DurableObjectNamespace<import("./src/server").SlideRemote>;
 	}
 }
 interface Env extends Cloudflare.Env {}
@@ -21,7 +16,7 @@ type StringifyValues<EnvType extends Record<string, unknown>> = {
 	[Binding in keyof EnvType]: EnvType[Binding] extends string ? EnvType[Binding] : string;
 };
 declare namespace NodeJS {
-	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "HOST" | "OPENAI_API_KEY">> {}
+	interface ProcessEnv extends StringifyValues<Pick<Cloudflare.Env, "HOST">> {}
 }
 
 // Begin runtime types
